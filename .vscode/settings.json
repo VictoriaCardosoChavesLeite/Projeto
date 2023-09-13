@@ -1,0 +1,8 @@
+{
+    "python.defaultInterpreterPath": "\"C:\\Users\\victo\\anaconda3\\Scripts\\activate.bat\"",
+    "python.testing.pytestArgs": [
+        "instance"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true
+}

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cadastro de livro</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/cadastro_livro_style.css')}}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header>
+            <div class="logo">Olá, {{ session['nome'] }}!</div>
+            <div class="hamburguer">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            <nav class="nav-bar">
+                <ul>
+                    <li><a href="{{ url_for('inicial_f') }}">Inicio</a></li>
+                    <li><a href="#" class="active">Cadastrar livro</a></li>
+                    <li><a href="#">Reservas</a></li>
+                    <li><a href="#">Sair</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <script>
+            hamburger = document.querySelector(".hamburguer");
+            hamburger.onclick = function () {
+                navBar = document.querySelector(".nav-bar");
+                navBar.classList.toggle("active");
+            }
+        </script>
+
+
+        <div class="container-cadastro">
+            <div class="wrap-cadastro">
+                <form action="/livro" method="POST" class="cadastro-form" enctype="multipart/form-data">
+                    <span class="cadastro-form-title">
+                        Cadastro de livro
+                    </span>
+
+                    <div class="wrap-input margin-top-35 margin-bottom-35">
+                        <input class="input-form" type="text" name="titulo" autocomplete="off">
+                        <span class="focus-input-form" data-placeholder="Título"></span>
+                    </div>
+
+                    <div class="wrap-input margin-top-35 margin-bottom-35">
+                        <input class="input-form" type="text" name="autor" autocomplete="off">
+                        <span class="focus-input-form" data-placeholder="Autor"></span>
+                    </div>
+
+                    <div class="wrap-input margin-top-35 margin-bottom-35 function">
+                        <span class="focus-input-form" data-placeholder="Categoria"></span>
+                    </div>
+
+                    <div class="wrap-input margin-bottom-35">
+                        <select id="categoria" class="select input-form" name="categoria" required="required">
+                            <option value="">Escolha a categoria do livro</option>
+                            <option value="t.i">T.I</option>
+                            <option value="farmacia">Farmácia</option>
+                            <option value="demartologia">Demartologia</option>
+                            <option value="medicina">Medicina</option>
+                            <option value="letras">Letras</option>
+                            <option value="direito">Direito</option>
+                            <option value="calculo">Cálculo</option>
+                            <option value="desing">Desing</option>
+                            <option value="fisica">Física</option>
+                            <option value="matematica">Matemática</option>
+                        </select>
+                    </div>
+
+                    <div class="wrap-input margin-top-35 margin-bottom-35 function">
+                        <span class="focus-input-form" data-placeholder="Capa"></span>
+                    </div>
+
+                    <div class="wrap-input margin-top-35 margin-bottom-35">
+                        <label class="picture" for="picture__input" tabIndex="0">
+                            <span class="picture__image"></span>
+                        </label>
+                        <input type="file" name="picture__input" id="picture__input">
+                    </div>
+
+                    <div class="wrap-input margin-top-35 margin-bottom-35 function">
+                        <span class="focus-input-form" data-placeholder="Data de lançamento"></span>
+                    </div>
+
+                    <div class="wrap-input margin-top-35 margin-bottom-35">
+                        <input class="input-form" type="date" name="data">
+                    </div>
+
+
+                    <div class="container-cadastro-form-btn">
+                        <input type="submit" class="cadastro-form-btn" value="Cadastrar"></input>
+                    </div>
+                </form>
+            </div>
+            <img src="static\image\Bibliophile-bro.png" alt="Login" width="500" height="500" class="margin-left-50" />
+        </div>
+
+        <script>
+            let inputs = document.getElementsByClassName("input-form");
+            for (let input of inputs) {
+                input.addEventListener("blur", function () {
+                    if (input.value.trim() != "") {
+                        input.classList.add("has-val")
+                    } else {
+                        input.classList.remove("has-val")
+                    }
+                });
+            }
+        </script>
+        <script src="static\js\pic.js"></script>
+</body>
+
+</html>

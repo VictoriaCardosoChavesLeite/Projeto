@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Livros</title>
+  <link rel="stylesheet" href="{{url_for('static',filename='css/style_livros.css')}}">
+</head>
+
+<body>
+  <header>
+    <div class="logo">Olá, {{ session['nome'] }}!</div>
+    <div class="hamburguer">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
+    <nav class="nav-bar">
+      <ul>
+        <li><a href="{{ url_for('inicial_a') }}">Inicio</a></li>
+        <li><a href="#" class="active">Lista de livros</a></li>
+        <li><a href="#">Minhas reservas</a></li>
+        <li><a href="#">Sair</a></li>
+      </ul>
+    </nav>
+    <div class="shopping">
+      <img src="/static/image/livros.png" alt="">
+      <span class="quantity">0</span>
+    </div>
+  </header>
+
+  <div class="card">
+    <h1>Lista de reserva</h1>
+    <ul class="listCard"></ul>
+    <div class="checkOut">
+      <div class="Shopping">Fazer reserva</div>
+      <div class="closeShopping">Close</div>
+    </div>
+  </div>
+
+  <div class="gallery">
+    {% for livro in livros %}
+    <div class="content">
+      <img src={{livro.capa}}>
+      <h3>{{livro.titulo}}</h3>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa aperiam tempora illo incidunt repellat eos
+        ipsam odio maiores alias!</p>
+      <form method="post" action="{{ url_for('livros') }}">
+        <input type="hidden" name="book_title" value="{{ livro.titulo }}">
+        <button class="buy">Adicionar ao carrinho</button>
+      </form>
+    </div>
+    {% endfor %}
+  </div>
+
+
+  <script>
+    hamburger = document.querySelector(".hamburguer");
+    hamburger.onclick = function () {
+      navBar = document.querySelector(".nav-bar");
+      navBar.classList.toggle("active");
+    }
+  </script>
+
+  <script src="/static/js/app.js"></script>
+</body>
+
+</html>

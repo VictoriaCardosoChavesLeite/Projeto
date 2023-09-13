@@ -1,0 +1,417 @@
+/*
+   Variáveis 
+*/
+
+:root{
+    --main-color: #407bff;
+    --link-color: #666666;
+    --text1: #999999;
+    --highlighth-text: #333333;
+    --input-text: #555555;
+    --white-color: #FFFFFF;
+    --points-list: #CCCCCC;
+    --line-input: #D9D9D9;
+}
+
+/* 
+    Fontes
+*/
+
+@font-face {
+    font-family: Poppins-Regular;
+    src: url('../fonts/Poppins-Regular.ttf');
+}
+
+@font-face {
+    font-family: Poppins-Medium;
+    src: url('../fonts/Poppins-Medium.ttf');
+}
+
+
+@font-face {
+    font-family: Poppins-Bold;
+    src: url('../fonts/Poppins-Bold.ttf');
+}
+
+
+@font-face {
+    font-family: Poppins-SemiBold;
+    src: url('../fonts/Poppins-SemiBold.ttf');
+}
+
+/* 
+   Zerar estilos
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,html{
+    height: 100%;
+    font-family: Poppins-Regular, sans-serif;
+}
+
+input, button{
+    outline: none !important;
+    border: none;
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+/*
+   Utilitários
+*/
+
+.margin-bottom-35 {
+    margin-bottom: 35px;
+}
+
+.margin-top-35 {
+    margin-top: 35px;
+}
+
+.margin-bottom-8 {
+    margin-bottom: 8px;
+}
+
+.margin-top-8 {
+    margin-top: 8px;
+}
+
+.margin-left-50 {
+    margin-left: 50px;
+}
+
+/* 
+   Cadastro
+*/
+
+.container{
+    width: 100%;
+    margin: 0 auto;
+}
+
+.container-cadastro{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    background-color: var(--white-color);
+}
+
+.wrap-cadastro{
+    width: 370px;
+    margin-right: 50px;
+    background-color: var(--white-color);
+}
+
+/* 
+   Formulário
+*/
+.cadastro-form{
+    width: 100%;
+}
+
+.cadastro-form-title{
+    display: block;
+    font-family: Poppins-Bold;
+    font-size: 40px;
+    color: var(--highlighth-text);
+    line-height: 1.5;
+    text-align: center;
+}
+
+/* 
+   Input
+*/
+
+.wrap-input{
+    width: 100%;
+    position: relative;
+    border-bottom: 2px solid var(--line-input);
+}
+
+.input-form{
+    font-family: Poppins-SemiBold;
+    font-size: 18px;
+    color: var(--input-text);
+    line-height: 1.2;
+    display: block;
+    width: 100%;
+    height: 52px;
+    background: transparent;
+    padding: 0 5px;
+}
+
+#picture__input {
+    display: none;
+  }
+  
+  .picture {
+    width: 350px;
+    aspect-ratio: 16/9;
+    background: var(--white-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--input-text);
+    border: 2px dashed currentcolor;
+    cursor: pointer;
+    font-family: Poppins-SemiBold;
+    transition: color 300ms ease-in-out, background 300ms ease-in-out;
+    outline: none;
+    overflow: hidden;
+  }
+  
+  .picture:hover {
+    color: var(--white-color);
+    background: var(--input-text);
+  }
+  
+  .picture:active {
+    border-color: var(--highlighth-text);
+    color: var(--input-text);
+    background: var(--white-color);
+  }
+  
+  .picture:focus {
+    color: var(--input-text);
+    background: var(--white-color);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .picture__img {
+    max-width: 100%;
+  }
+  
+
+.focus-input-form{
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+.select{
+    border-width: px;
+    border-radius: 10px;
+    border-color: var(--input-text);
+    border-bottom: 0px;
+}
+
+.function{
+    border-bottom: 0px;
+    height: 25px;
+}
+
+.focus-input-form::before{
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    transition: all 0.4s;
+    background-color: var(--main-color);
+}
+
+.focus-input-form::after{
+    font-family: Poppins-Medium;
+    font-size: 18px;
+    color: var(--text1);
+    line-height: 1.2;
+    content: attr(data-placeholder);
+    display: block;
+    width: 100%;
+    position: absolute;
+    top: 15px;
+    left: 0px;
+    padding: 5px;
+    transition: all 0.4s;
+}
+
+.input-form:focus + .focus-input-form::after{
+    top: -20px;
+    font-size: 15px;
+}
+
+.input-form:focus + .focus-input-form::before{
+    width: 100%;
+}
+
+.has-val.input-form + .focus-input-form::after{
+    top: -20px;
+    font-size: 15px;
+}
+
+.has-val.input-form + .focus-input-form::before{
+    width: 100%;
+}
+
+/* 
+   Botão
+*/
+
+.container-cadastro-form-btn{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.cadastro-form-btn{
+    font-family: Poppins-Medium;
+    font-size: 16px;
+    color: var(--white-color);
+    line-height: 1.2;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    width: 100%;
+    height: 50px;
+    background-color: var(--main-color);
+    border-radius: 5px;
+    transition: all 0.4s;
+}
+
+.login-form-btn:hover{
+    background-color: var(--highlighth-text);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  font-family: Poppins-Regular;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--white-color);
+}
+
+header {
+  width: 100%;
+  height: 80px;
+  background: var(--main-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 100px;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: bold;
+  color: var(--white-color);
+}
+
+.hamburguer {
+  display: none;
+}
+
+.nav-bar ul {
+  display: flex;
+}
+
+.nav-bar ul li a {
+  display: block;
+  color: var(--white-color);
+  font-size: 20px;
+  padding: 10px 25px;
+  border-radius: 50px;
+  transition: 0.2s;
+  margin: 0 5px;
+}
+
+.nav-bar ul li a:hover {
+  color: var(--main-color);
+  background: var(--white-color);
+}
+
+.nav-bar ul li a.active {
+  color: var(--main-color);
+  background: var(--white-color);
+}
+
+@media only screen and (max-width: 1320px) {
+  header {
+    padding: 0 50px;
+  }
+  .content{
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  header {
+    padding: 0 30px;
+  }
+  .content{
+    width: 70%;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .hamburguer {
+    display: block;
+    cursor: pointer;
+  }
+
+  .hamburguer .line {
+    width: 30px;
+    height: 3px;
+    background: var(--white-color);
+    margin: 6px 0;
+  }
+
+  .nav-bar {
+    height: 0px;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    right: 0;
+    width: 100vw;
+    background: var(--main-color);
+    transition: 0.5s;
+    overflow: hidden;
+  }
+
+  .nav-bar.active {
+    height: 450px;
+  }
+
+  .nav-bar ul {
+    display: block;
+    width: fit-content;
+    margin: 80px auto 0 auto;
+    text-align: center;
+    transition: 0.5s;
+    opacity: 0;
+  }
+
+  .nav-bar.active ul {
+    opacity: 1;
+  }
+
+  .nav-bar ul li a {
+    margin-bottom: 12px;
+  }
+  .content{
+    width: 45%;
+  }
+}
