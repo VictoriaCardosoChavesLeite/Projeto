@@ -87,6 +87,22 @@ header {
   background: var(--white-color);
 }
 
+.initial_content{
+  padding: 10px 25px;
+  margin: 0 5px;
+}
+
+.texto{
+  font-family: Poppins-Bold;
+  font-size: 50px;
+  margin-left: 50px;
+}
+
+.img{
+  margin-left: 50px;
+  margin-top: 35px;
+}
+
 @media only screen and (max-width: 1320px) {
   header {
     padding: 0 50px;
