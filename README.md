@@ -1,5 +1,3 @@
-# Documentação do Código: Sistema de Biblioteca com Flask
-
 ## Visão Geral
 
 Este código implementa um sistema de biblioteca básico utilizando o framework Flask para Python. O sistema inclui funcionalidades como login, cadastro de usuários (alunos e funcionários), cadastro de livros, exibição de livros, e logout.
